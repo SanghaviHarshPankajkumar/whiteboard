@@ -3,10 +3,10 @@ import App from './App.jsx'
 
 /* 
     ***************reamining Tasks***************
-    - chats layout
+    - chats layout :- done...
     - add navbarui 
     - add background 
-    - copy button functionality 
+    - copy button functionality :- Done...
     - fix  refresh disconnects room
 
 */

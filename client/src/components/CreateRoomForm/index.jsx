@@ -30,6 +30,10 @@ const CreateRoomForm = (prop) => {
     const genrate = () => {
         setRoomId(short());
     }
+    const copy = ()=>{
+        navigator.clipboard.writeText(roomId)
+    }
+    
     return (
         <Container className={classes.container} >
             <Typography variant="h5" color="textPrimary" > Create Room</Typography>
@@ -37,7 +41,7 @@ const CreateRoomForm = (prop) => {
             <div className={classes.form}>
                 <TextField style={{ width: "100%" }} type="text" name="RoomId" variant='outlined' label="Room Id" size="small" value={roomId} disabled />
                 <Button variant="contained" color="primary" className={classes.iconButton} onClick={genrate}><CropIcon fontSize='small' />  </Button>
-                <Button variant="contained" className={classes.iconButton} > <FileCopyIcon fontSize="small" /> </Button>
+                <Button variant="contained" className={classes.iconButton} onClick={copy}> <FileCopyIcon fontSize="small" /> </Button>
             </div>
             <Button variant="contained" style={{ marginTop: "20px" }} color="primary" fullWidth size="small" onClick={handleJoin} > Join Room </Button>
         </Container>
