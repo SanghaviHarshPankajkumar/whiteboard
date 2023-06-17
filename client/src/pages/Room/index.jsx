@@ -3,10 +3,10 @@ import { useEffect, useRef, useState } from 'react'
 import UndoIcon from '@material-ui/icons/Undo';
 import RedoIcon from '@material-ui/icons/Redo';
 import WhiteBoard from '../../components/WhiteBoard';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChatIcon from '@material-ui/icons/Chat'
+
 import UserBar from '../../components/UserBar';
 import ChatBar from '../../components/ChatBar';
+import NavBar from '../../components/NavBar';
 import useStyles from './styles';
 export const Room = (prop) => {
     const { socket, user } = prop;
@@ -95,19 +95,17 @@ export const Room = (prop) => {
         setOpenChat(!openChat);
     }
     return (
+        <>
+        <NavBar fromRoom={true} handleToggleDrawer={handleToggleDrawer} handleToggleDrawer2= {handleToggleDrawer2} usersCount={users.length}  />
         <Container className={classes.container}>
-            <Button variant='outlined' color='primary' onClick={handleToggleDrawer} className={classes.drawerButton}> <MenuIcon /> </Button>
-            <Button variant='outlined' color='primary' onClick={handleToggleDrawer2} className={classes.drawerButton2} size='large'><ChatIcon fontSize='large' /></Button>
+           
             <Drawer open={open} onClose={handleToggleDrawer} anchor='left' PaperProps={{ style: { width: "20%" } }}>
                 <UserBar users={users} socketId={user.socketId} />
             </Drawer>
             <Drawer open={openChat} onClose={handleToggleDrawer2} anchor='right' PaperProps={{ style: { width: "30%" } }}>
                 <ChatBar socket={socket} user={user} messages={messages} handleUpdate={handleUpdate} />
             </Drawer>
-            <div style={{ marginLeft: '15%' }}>
-                <Typography variant='h3' color='textPrimary'>Welcome to the Room</Typography>
-                <Typography variant='subtitle1' > {`Current Users: ${users.length}`}  </Typography>
-            </div>
+            
             {
                 user?.maker &&
                 (<>
@@ -140,6 +138,7 @@ export const Room = (prop) => {
             <WhiteBoard value={value} elements={elements} setElements={setElements} socket={socket} user={user} color={color} canvasRef={canvasRef} ctxRef={ctxRef} />
 
         </Container>
+        </>
     )
 }
 

@@ -2,9 +2,13 @@
 import { Container, Grid } from '@material-ui/core'
 import CreateRoomForm from '../../components/CreateRoomForm'
 import JoinRoomForm from '../../components/JoinRoomForm'
+import NavBar from '../../components/NavBar';
+
 const Home = (prop) => {
     const { setUserJoined, setUser } = prop;
     return (
+        <>
+        <NavBar/>
         <Container>
 
             <Container>
@@ -18,6 +22,7 @@ const Home = (prop) => {
                 </Grid>
             </Container>
         </Container>
+        </>
 
     )
 }
