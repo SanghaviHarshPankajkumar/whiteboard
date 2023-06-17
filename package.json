@@ -1,0 +1,15 @@
+{
+  "name": "whiteboard_sharing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install-client":"cd client && npm install && npm run build",
+    "client":"cd client && npm run dev",
+    "server":"cd server && npm run start",
+    "install-server":"cd server && npm install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

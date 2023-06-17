@@ -5,7 +5,7 @@ import JoinRoomForm from '../../components/JoinRoomForm'
 const Home = (prop) => {
     const { setUserJoined, setUser } = prop;
     return (
-        <Container style={{ marginTop: '15%' }} >
+        <Container>
 
             <Container>
                 <Grid container spacing={2} >

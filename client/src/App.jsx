@@ -3,6 +3,7 @@ import { Room } from './pages/Room'
 import Home from './pages/Home'
 import { useEffect, useState } from 'react'
 import io from 'socket.io-client';
+import NavBar from './components/NavBar';
 const URL = 'http://localhost:5000';
 const connectionOption = {
     "force new connection": true,
@@ -39,6 +40,7 @@ function App() {
         <div style={{ height: '100%', width: '100%' }}>
 
             <BrowserRouter>
+                <NavBar/>
                 <Routes>
                     <Route exact path='/' Component={() => <Home setUser={setUser} setUserJoined={setUserJoined} />} />
                     <Route exact path='/:id' Component={() => <Room user={user} socket={socket} />} />
