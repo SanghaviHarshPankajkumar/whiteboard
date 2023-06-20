@@ -8,6 +8,7 @@ import UserBar from '../../components/UserBar';
 import ChatBar from '../../components/ChatBar';
 import NavBar from '../../components/NavBar';
 import useStyles from './styles';
+import { useNavigate } from 'react-router-dom';
 export const Room = (prop) => {
     const { socket, user } = prop;
     const [open, setOpen] = useState(false);
@@ -20,11 +21,14 @@ export const Room = (prop) => {
     const [history, setHistory] = useState([]);
     const canvasRef = useRef(null);
     const ctxRef = useRef(null);
-
     const classes = useStyles();
-    const handleChange = (e) => {
-        setValue(e.target.value);
-    }
+    const navigate  = useNavigate();
+   
+    useEffect(() => {
+        window.onbeforeunload = function() {
+             navigate('/');
+        };
+    }, []);
     useEffect(() => {
         socket.emit("getUsers", { roomId: user.roomId, joiner: user.joiner });
     }, [user]);
@@ -58,6 +62,9 @@ export const Room = (prop) => {
             // console.log(users);
         });
     }, []);
+    const handleChange = (e) => {
+        setValue(e.target.value);
+    }
     const handleUndo = () => {
         setHistory((prev) => [...prev, elements[elements.length - 1]]);
         if (elements.length === 1) {
