@@ -31,7 +31,7 @@ const ChatBar = (prop) => {
                     )
                     : (
                         <div className={classes.messageRecive} key={ele}>
-                            <TextField multiline disabled className={classes.reciverInput} variant='outlined' value= {`${ele.user}:${ele.message}`}>  </TextField>
+                            <TextField multiline disabled className={classes.reciverInput} variant='outlined' value= {`${ele.user} : ${ele.message}`}>  </TextField>
                         </div>
                     )
                 }

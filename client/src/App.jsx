@@ -1,4 +1,6 @@
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
+import { Snackbar } from '@material-ui/core'
+import {Alert} from '@material-ui/lab'
 import { Room } from './pages/Room'
 import Home from './pages/Home'
 import { useEffect, useState } from 'react'
@@ -14,7 +16,9 @@ const socket = io(URL, connectionOption);
 function App() {
     const [user, setUser] = useState({});
     const [userJoined, setUserJoined] = useState(false);
-   
+    const [showAlert, setShowAlert] = useState(false);
+
+
     useEffect(() => {
         if (userJoined) {
             // console.log(userJoined);
@@ -28,6 +32,7 @@ function App() {
         socket.on('userJoined', (data) => {
             if (data.success) {
                 setUser(data.user);
+                setShowAlert(true)
             }
             else {
                 console.log('something went wrong...');
@@ -35,12 +40,17 @@ function App() {
         })
 
     }, []);
-    if(Object.keys(user).length===0)
-    console.log(user)
+   const onClose = ()=>{
+        setShowAlert(false);
+   }
     return (
 
         <div style={{ height: '100%', width: '100%' }}>
-
+  <Snackbar open={showAlert} autoHideDuration={6000} onClose={onClose} >
+        <Alert  severity="success" onClose = {onClose} sx={{ width: '100%' }}>
+         User Joined Successfully
+        </Alert>
+        </Snackbar>
             <BrowserRouter>
                 
                 <Routes>

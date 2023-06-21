@@ -40,8 +40,10 @@ const CreateRoomForm = (prop) => {
             <TextField style={{ marginTop: '20px' }} type="text" name="UserName" required variant='outlined' fullWidth label="Enter your name" size="small" value={userName} onChange={(e) => { setUserName(e.target.value) }} />
             <div className={classes.form}>
                 <TextField style={{ width: "100%" }} type="text" name="RoomId" variant='outlined' label="Room Id" size="small" value={roomId} disabled />
-                <Button variant="contained" color="primary" className={classes.iconButton} onClick={genrate}><CropIcon fontSize='small' />  </Button>
+              <div className={classes.buttonContainer}>
+              <Button variant="contained" color="primary" className={classes.iconButton} onClick={genrate}><CropIcon fontSize='small' />  </Button>
                 <Button variant="contained" className={classes.iconButton} onClick={copy}> <FileCopyIcon fontSize="small" /> </Button>
+              </div>
             </div>
             <Button variant="contained" style={{ marginTop: "20px" }} color="primary" fullWidth size="small" onClick={handleJoin} > Join Room </Button>
         </Container>
