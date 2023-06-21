@@ -5,7 +5,7 @@ import { Room } from './pages/Room'
 import Home from './pages/Home'
 import { useEffect, useState } from 'react'
 import io from 'socket.io-client';
-const URL = 'http://localhost:5000';
+const URL = 'https://whiteboard-server-8wu8.onrender.com';
 const connectionOption = {
     "force new connection": true,
     reconnectionAttempts: "Infinity",
