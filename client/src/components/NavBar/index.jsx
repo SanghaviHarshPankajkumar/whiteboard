@@ -1,6 +1,6 @@
 import {AppBar,Typography,Button} from "@material-ui/core";
 import {Link  } from 'react-router-dom';
-// import whiteboard2 from '../../assets/whiteboard2.png'
+import whiteboard2 from './whiteboard2.png'
 import MenuIcon from '@material-ui/icons/Menu';
 import ChatIcon from '@material-ui/icons/Chat'
 import useStyles from './styles.js';
@@ -16,7 +16,7 @@ const NavBar = (prop) => {
             )
         }
     <Link to="/" style={{font:'none', textDecoration:'none'}}> <Typography className={classes.heading} variant="h2" align="center"> WhiteBoard</Typography></Link>
-{/*      <img className={fromRoom? classes.image2: classes.image} src={whiteboard2} alt='main' /> */}
+     <img className={fromRoom? classes.image2: classes.image} src={whiteboard2} alt='main' />
 
      {
         fromRoom && (
